@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohamed &amp; Nadine — Wedding Invitation</title>
+<meta name="theme-color" content="#3b0d14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#4a0f1a;--wine2:#2c0810;--gold:#c9a45c;--cream:#f6efe2;--ink:#3a2a22;--script:'Great Vibes','Snell Roundhand',cursive;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat',Arial,sans-serif;--ar:'Amiri','Traditional Arabic',serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--wine2);color:var(--cream);font-family:var(--serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden;height:100svh}
+section{min-height:100svh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:72px 24px;overflow:hidden}
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1.2s ease,transform 1.2s ease}
+.in .rv{opacity:1;transform:none}
+.in .rv:nth-child(2){transition-delay:.25s}.in .rv:nth-child(3){transition-delay:.5s}.in .rv:nth-child(4){transition-delay:.75s}.in .rv:nth-child(5){transition-delay:1s}
+.eyebrow{font-family:var(--sans);font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold)}
+.script{font-family:var(--script);font-weight:400}
+.divider{display:flex;align-items:center;gap:10px;justify-content:center;margin:22px auto;width:min(260px,70%)}
+.divider::before,.divider::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold))}
+.divider::after{transform:scaleX(-1)}
+.divider i{width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg)}
+button,.btn{font-family:var(--sans);cursor:pointer}
+.btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);background:transparent;padding:14px 30px;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;transition:.3s;border-radius:2px}
+.btn:hover,.btn:focus-visible{background:var(--gold);color:var(--wine2);outline:none}
+.btn.solid{background:var(--gold);color:var(--wine2)}
+.btn[aria-disabled=true]{opacity:.5;cursor:not-allowed}
+
+/* 1 ENVELOPE */
+#env{position:fixed;inset:0;z-index:100;background:#3b0d14;border:0;width:100%;perspective:1400px;cursor:pointer;--w:min(100vw,55.4svh);overflow:hidden}
+#env .glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,#f6e2b0 0,transparent 55%);opacity:0;transition:opacity 1.4s}
+#env .L{position:absolute;top:0;height:100svh;width:var(--w);left:50%;margin-left:calc(var(--w)/-2);background:url(images/envelope.jpg) center/cover;transition:transform 1.5s cubic-bezier(.7,0,.2,1),opacity 1.5s;will-change:transform}
+#env .top{clip-path:polygon(0 0,100% 0,100% 34%,50% 59%,0 34%);transform-origin:50% 0;filter:drop-shadow(0 12px 18px #0008)}
+#env .bot{clip-path:polygon(0 34%,50% 59%,100% 34%,100% 100%,0 100%)}
+#env .L.pulse{animation:pulse 2.8s ease-in-out infinite}
+@keyframes pulse{50%{filter:brightness(1.12)}}
+#env.open .glow{opacity:.9}
+#env.open .top{transform:translateY(-110%) rotateX(35deg);opacity:0}
+#env.open .bot{transform:translateY(110%);opacity:0}
+#env.gone{opacity:0;visibility:hidden;transition:opacity 1s .2s,visibility 0s 1.3s}
+#env{transition:opacity 1s}
+
+/* 2 BABIES */
+#babies{background:#000;padding:0}
+#babies .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.05);transform:scale(1.08);transition:transform 9s ease-out}
+#babies.in .bg{transform:scale(1)}
+#babies::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0006 0,#0004 40%,#000b 100%)}
+#babies .t{position:relative;z-index:2;margin-top:auto;padding:0 24px 18svh}
+#babies h2{font-family:var(--script);font-weight:400;font-size:clamp(2.6rem,11vw,5.2rem);line-height:1.1;text-shadow:0 2px 24px #000}
+.hint{position:absolute;bottom:26px;left:0;right:0;z-index:2;font-family:var(--sans);font-size:.62rem;letter-spacing:.35em;color:#fffa}
+.hint b{display:block;margin:6px auto 0;width:9px;height:9px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);animation:bob 1.8s infinite}
+@keyframes bob{50%{transform:translateY(7px) rotate(45deg)}}
+
+/* 3 COVER */
+#cover{background:radial-gradient(ellipse at 50% 62%,#7a2d1888 0,transparent 60%),radial-gradient(ellipse at 50% 100%,#c9893a55,transparent 55%),linear-gradient(#050207,#1d0a0c 70%,#2c0d0a)}
+#cover .arches{position:absolute;left:0;right:0;top:30%;height:30%;display:flex;justify-content:center;gap:2.5%;opacity:.35;padding:0 4%}
+#cover .arches i{flex:1;max-width:70px;border:1px solid #e8c98a88;border-bottom:0;border-radius:60px 60px 0 0;background:linear-gradient(#8d1a2a99,#3a0a1099)}
+#cover .arches i:nth-child(3){max-width:110px;height:130%;margin-top:-10%}
+#cover .spark{position:absolute;border-radius:50%;background:#ffd98a;filter:blur(1px);animation:tw 4s ease-in-out infinite}
+@keyframes tw{50%{opacity:.1;transform:translateY(-14px)}}
+#cover .c{position:relative;z-index:2}
+#cover h1{font-family:var(--script);font-weight:400;font-size:clamp(3rem,13vw,6.4rem);line-height:1.1;margin:14px 0;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:.15em .3em;text-shadow:0 2px 30px #000}
+#cover h1 span.amp{font-size:.55em;color:var(--gold)}
+.date{font-family:var(--sans);letter-spacing:.3em;font-size:clamp(.8rem,3.4vw,1.1rem);font-weight:400;text-transform:uppercase}
+#cover .hint{color:var(--gold)}
+
+/* 4 VERSE */
+.light{background:linear-gradient(#f8f1e4,#efe3cc);color:var(--ink)}
+.light::before,.light::after{content:"";position:absolute;inset:16px;border:1px solid #c9a45c88;pointer-events:none}
+.light::after{inset:22px;border-color:#c9a45c44}
+.ar{font-family:var(--ar);direction:rtl;unicode-bidi:isolate;line-height:2.1}
+.bism{font-size:clamp(1.5rem,6vw,2.2rem);color:#7a5a1e}
+.verse{font-size:clamp(1.35rem,5.6vw,2.1rem);max-width:640px;margin:8px auto;word-spacing:.05em}
+.sadaq{font-size:1.3rem;color:#7a5a1e}
+.tr{font-style:italic;font-size:clamp(1.1rem,4.3vw,1.4rem);max-width:520px;line-height:1.6;margin:6px auto}
+.ref{font-size:1.2rem;color:#7a5a1e;margin-top:10px}
+
+/* 5 COUNTDOWN */
+#count{background:radial-gradient(circle at 50% 30%,#6b1a2a,var(--wine2))}
+h2.st{font-family:var(--script);font-weight:400;font-size:clamp(2.4rem,9vw,3.8rem);color:var(--cream);margin:10px 0}
+.cd{display:flex;gap:clamp(8px,3vw,22px);justify-content:center;margin-top:22px}
+.cd div{width:clamp(66px,20vw,110px);padding:18px 0;border:1px solid #c9a45c77;background:#0003}
+.cd b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,8vw,3rem);color:var(--cream);font-variant-numeric:tabular-nums}
+.cd small{font-family:var(--sans);font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+#cdMsg{font-family:var(--script);font-size:clamp(2.6rem,10vw,4.4rem);color:var(--gold);display:none}
+.note{font-family:var(--sans);font-size:.7rem;letter-spacing:.15em;color:#e8d9bd;margin-top:18px;opacity:.8}
+
+/* 6 DETAILS */
+.grid{display:grid;gap:22px;max-width:420px;width:100%;margin:20px auto 28px}
+.grid div{border-bottom:1px solid #c9a45c66;padding-bottom:14px}
+.grid .eyebrow{color:#8a6a2a;font-size:.62rem}
+.grid p{font-size:1.4rem;margin-top:4px}
+.light .st{color:var(--wine)}
+
+/* 7 RSVP */
+#rsvp{background:linear-gradient(var(--wine2),#3b0d14)}
+form{width:100%;max-width:420px;text-align:left;margin-top:20px}
+label,legend{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin:16px 0 6px}
+input[type=text],input[type=number],textarea{width:100%;background:#0003;border:1px solid #c9a45c77;color:var(--cream);padding:13px;font:1.15rem var(--serif);border-radius:2px}
+input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+fieldset{border:0;padding:0;display:grid;gap:10px}
+.opt{display:block;border:1px solid #c9a45c77;padding:13px;margin:0;cursor:pointer;font:1.15rem var(--serif);letter-spacing:0;text-transform:none;color:var(--cream);text-align:center}
+.opt input{position:absolute;opacity:0}
+.opt:has(input:checked){background:var(--gold);color:var(--wine2)}
+.opt:has(input:focus-visible){outline:2px solid var(--cream)}
+.err{color:#ffb4a8;font-family:var(--sans);font-size:.72rem;min-height:1.2em;margin-top:12px}
+form .btn{width:100%;margin-top:10px}
+.small{font-size:.95rem;opacity:.8;margin-top:14px;text-align:center}
+
+/* 8 CLOSING */
+#closing{background:radial-gradient(circle at 50% 40%,#4a1420,#120508)}
+#closing p.s{font-size:1.4rem;font-style:italic;max-width:420px;line-height:1.6;margin:8px 0 28px}
+
+/* MUSIC */
+#music{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;width:48px;height:48px;border-radius:50%;border:0;background:#7a1428;color:#fff;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px #0008}
+#music.show{display:flex}
+#music svg{width:20px;height:20px;fill:#fff}
+#music .pa{display:none}#music.playing .pa{display:block}#music.playing .pl{display:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="lock">
+
+<!-- ============ EASY SETTINGS: edit this block only ============ -->
+<script>
+const CONFIG = {
+  groom: "Mohamed",
+  bride: "Nadine",
+  // Countdown target: 15 Jan 2027, 5:00 PM Egypt time. "+02:00" is Cairo's winter offset (Africa/Cairo),
+  // so every visitor sees the same countdown no matter where their phone is set.
+  weddingDate: "2027-01-15T17:00:00+02:00",
+  dateDisplay: "15 JANUARY 2027",              // shown on the cover
+  dateLong: "Friday, 15 January 2027",         // shown in Wedding Details
+  ceremonyTime: "5:00 PM",
+  venueName: "Tolip Hotel Olympic International City",
+  venueAddress: "",      // optional: add a street address here and it will appear automatically
+  mapsUrl: "https://maps.app.goo.gl/U393Zc4M2tTngfQz6?g_st=ic",
+  dressCode: "",         // optional (leave "" to hide)
+  whatsappNumber: "201152632221",  // international format, digits only (no + or spaces)
+  musicFile: "music/royal-theme.mp3"  // replace the file (or this path) with your own song anytime
+};
+</script>
+<!-- ================================================================ -->
+
+<!-- 1. Envelope -->
+<button id="env" type="button" aria-label="Click to open the invitation">
+  <div class="glow"></div>
+  <div class="L bot pulse"></div>
+  <div class="L top pulse"></div>
+</button>
+
+<button id="music" type="button" aria-label="Play or pause background music">
+  <svg class="pl" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+  <svg class="pa" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+</button>
+
+<main>
+<!-- 2. Babies -->
+<section id="babies">
+  <img class="bg" src="images/babies.jpg" alt="Mohamed and Nadine as babies, hugging">
+  <div class="t"><h2 class="rv">These Kids Are<br>Getting Married</h2></div>
+  <div class="hint">SCROLL<b></b></div>
+</section>
+
+<!-- 3. Cover -->
+<section id="cover">
+  <div class="arches" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="c">
+    <p class="eyebrow rv">Together with their families</p>
+    <h1 class="rv"><span id="gn">Mohamed</span><span class="amp">&amp;</span><span id="bn">Nadine</span></h1>
+    <div class="divider rv"><i></i></div>
+    <p class="date rv" id="coverDate"></p>
+  </div>
+  <div class="hint">SCROLL<b></b></div>
+</section>
+
+<!-- 4. Verse -->
+<section id="verse" class="light">
+  <p class="ar bism rv" lang="ar">بِسْمِ اللهِ الرَّحْمنِ الرَّحِيمِ</p>
+  <div class="divider rv"><i></i></div>
+  <p class="ar verse rv" lang="ar">﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنْفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ ﴾</p>
+  <p class="ar sadaq rv" lang="ar">صدق الله العظيم</p>
+  <p class="tr rv">“And among His signs is that He created for you spouses from among yourselves so that you may find tranquility in them, and He placed between you affection and mercy.”</p>
+  <p class="ar ref rv" lang="ar">سورة الروم — آية ٢١</p>
+</section>
+
+<!-- 5. Countdown -->
+<section id="count">
+  <p class="eyebrow rv">Counting down to</p>
+  <h2 class="st rv">Our Special Day</h2>
+  <div class="cd rv" id="cd" role="timer" aria-live="off">
+    <div><b id="d">--</b><small>Days</small></div>
+    <div><b id="h">--</b><small>Hours</small></div>
+    <div><b id="m">--</b><small>Minutes</small></div>
+    <div><b id="s">--</b><small>Seconds</small></div>
+  </div>
+  <p id="cdMsg" role="status">The Day Is Here!</p>
+  <p class="note rv" id="cdNote"></p>
+</section>
+
+<!-- 6. Details -->
+<section id="details" class="light">
+  <p class="eyebrow rv" style="color:#8a6a2a">Join us for</p>
+  <h2 class="st script rv">Wedding Details</h2>
+  <div class="grid rv" id="grid"></div>
+  <a class="btn rv" id="mapBtn" href="#" target="_blank" rel="noopener">View Location</a>
+</section>
+
+<!-- 7. RSVP -->
+<section id="rsvp">
+  <p class="eyebrow rv">Kindly reply</p>
+  <h2 class="st rv">RSVP</h2>
+  <form id="form" class="rv" novalidate>
+    <label for="gname">Your name</label>
+    <input type="text" id="gname" autocomplete="name" required>
+    <fieldset>
+      <legend>Will you attend?</legend>
+      <label class="opt"><input type="radio" name="att" value="Joyfully Accept">Joyfully Accept</label>
+      <label class="opt"><input type="radio" name="att" value="Regretfully Decline">Regretfully Decline</label>
+    </fieldset>
+    <label for="gcount">Number of guests</label>
+    <input type="number" id="gcount" min="1" max="20" value="1" inputmode="numeric">
+    <label for="gmsg">Message (optional)</label>
+    <textarea id="gmsg" rows="3"></textarea>
+    <p class="err" id="err" role="alert"></p>
+    <button type="submit" class="btn solid">Confirm Attendance via WhatsApp</button>
+    <p class="small">This opens WhatsApp with your reply ready. Please press Send there to complete your RSVP.</p>
+  </form>
+</section>
+
+<!-- 8. Closing -->
+<section id="closing">
+  <p class="script rv" style="font-size:clamp(2.4rem,10vw,4rem)">With Love,<br><span id="cl"></span></p>
+  <div class="divider rv"><i></i></div>
+  <p class="s rv">Two hearts, one story — thank you for being part of the beginning of our forever.</p>
+  <button class="btn rv" id="top" type="button">Back to Top</button>
+</section>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const C=CONFIG;
+// names & dates
+$('gn').textContent=C.groom;$('bn').textContent=C.bride;
+$('cl').textContent=C.groom+' & '+C.bride;
+$('coverDate').textContent=C.dateDisplay;
+
+// details
+const rows=[['Date',C.dateLong||C.dateDisplay],['Ceremony Time',C.ceremonyTime],['Venue',C.venueName],['Address',C.venueAddress,true],['Dress Code',C.dressCode,true]];
+rows.forEach(([k,v,optional])=>{
+  if(optional&&!v)return;
+  const d=document.createElement('div');
+  d.innerHTML='<span class="eyebrow"></span><p></p>';
+  d.firstChild.textContent=k;d.lastChild.textContent=v||'To be announced';
+  $('grid').appendChild(d);
+});
+const mb=$('mapBtn');
+if(C.mapsUrl){mb.href=C.mapsUrl}else{mb.setAttribute('aria-disabled','true');mb.textContent='Location Coming Soon';mb.addEventListener('click',e=>e.preventDefault())}
+
+// countdown
+const target=C.weddingDate?new Date(C.weddingDate).getTime():NaN;
+function tick(){
+  if(isNaN(target)){$('cdNote').textContent='The wedding date will be announced soon.';return}
+  $('cdNote').textContent=C.dateLong+' · '+C.ceremonyTime+' · Cairo time';
+  let diff=target-Date.now();
+  if(diff<=0){$('cd').style.display='none';$('cdMsg').style.display='block';clearInterval(timer);return}
+  const p=n=>String(n).padStart(2,'0');
+  $('d').textContent=Math.floor(diff/864e5);
+  $('h').textContent=p(Math.floor(diff/36e5)%24);
+  $('m').textContent=p(Math.floor(diff/6e4)%60);
+  $('s').textContent=p(Math.floor(diff/1e3)%60);
+}
+tick();const timer=setInterval(tick,1000);
+
+// music
+let audio=null;
+if(C.musicFile){audio=new Audio(C.musicFile);audio.loop=true;audio.volume=.6;audio.addEventListener('error',()=>{audio=null;$('music').classList.remove('show')})}
+const mBtn=$('music');
+function play(){if(!audio)return;audio.play().then(()=>mBtn.classList.add('playing')).catch(()=>mBtn.classList.remove('playing'))}
+mBtn.addEventListener('click',()=>{if(!audio)return;if(audio.paused)play();else{audio.pause();mBtn.classList.remove('playing')}});
+
+// envelope
+const env=$('env');
+env.addEventListener('click',()=>{
+  if(env.classList.contains('open'))return;
+  env.classList.add('open');
+  document.querySelectorAll('#env .L').forEach(e=>e.classList.remove('pulse'));
+  if(audio){mBtn.classList.add('show');play()}
+  setTimeout(()=>{env.classList.add('gone');document.body.classList.remove('lock');window.scrollTo(0,0);observe()},1500);
+  setTimeout(()=>env.remove(),2800);
+});
+
+// reveal on scroll
+function observe(){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.25});
+  document.querySelectorAll('section').forEach(s=>io.observe(s));
+}
+
+// sparkles on cover
+const cv=$('cover');
+for(let i=0;i<22;i++){const s=document.createElement('span');s.className='spark';const z=2+Math.random()*3;
+  s.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;top:${50+Math.random()*50}%;animation-delay:${Math.random()*4}s;opacity:.7`;cv.appendChild(s)}
+
+// RSVP -> WhatsApp
+$('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=$('gname').value.trim(),att=document.querySelector('input[name=att]:checked'),n=parseInt($('gcount').value,10),msg=$('gmsg').value.trim();
+  const err=$('err');
+  if(!name){err.textContent='Please enter your name.';$('gname').focus();return}
+  if(!att){err.textContent='Please choose whether you will attend.';return}
+  if(!n||n<1){err.textContent='Please enter the number of guests.';$('gcount').focus();return}
+  const num=(C.whatsappNumber||'').replace(/\D/g,'');
+  if(!num){err.textContent='The RSVP number has not been set yet. Please contact the hosts directly.';return}
+  err.textContent='';
+  const text=`Wedding RSVP — ${C.groom} & ${C.bride}\nName: ${name}\nResponse: ${att.value}\nGuests: ${n}`+(msg?`\nMessage: ${msg}`:'');
+  window.location.href='https://wa.me/'+num+'?text='+encodeURIComponent(text);
+});
+
+$('top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>
